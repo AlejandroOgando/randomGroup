@@ -10,6 +10,27 @@ namespace namePicker
     class Program
     {
 
+        //Alejandro J. Ogando. ID: 1096182
+        //Marcos Yepez. ID: 1090192
+        //Nayely Ventura. ID: 1094588
+        //Bryan M. Medina. ID: 1094168
+        //Ian R. De los Santos. ID: 1095250
+
+        static List<string> RandomList(List<string> array)
+        {
+            Random random = new Random();
+            List<string> randomList = new List<string>();
+
+            do
+            {
+                int posicion = random.Next(array.Count());
+                randomList.Add(array[posicion]);
+                array.RemoveAt(posicion);
+            } while (array.Count() > 0);
+
+            return randomList;
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Introduzca la ruta del archivo txt, que contenga los estudiantes:");
@@ -52,22 +73,9 @@ namespace namePicker
                     t++;
                 }
             }
+
             Console.ReadLine();
         }
 
-        static List<string> RandomList(List<string> array)
-        {
-            Random random = new Random();
-            List<string> randomList = new List<string>();
-
-            do
-            {
-                int posicion = random.Next(array.Count());
-                randomList.Add(array[posicion]);
-                array.RemoveAt(posicion);
-            } while (array.Count() > 0);
-
-            return randomList;
-        }
     }
 }
