@@ -14,6 +14,7 @@ namespace namePicker
         //Marcos Yepez. ID: 1090192
         //Nayely Ventura. ID: 1094588
         //Bryan M. Medina. ID: 1094168
+        //Héctor Soriano. ID: 1088434
         //Ian R. De los Santos. ID: 1095250
 
         static List<string> RandomList(List<string> array)
