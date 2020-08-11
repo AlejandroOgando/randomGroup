@@ -17,6 +17,7 @@ namespace namePicker
         //Héctor Soriano. ID: 1088434
         //Ian R. De los Santos. ID: 1095250
 
+        //this method works with the random list
         static List<string> RandomList(List<string> array)
         {
             Random random = new Random();
@@ -24,9 +25,9 @@ namespace namePicker
 
             do
             {
-                int posicion = random.Next(array.Count());
-                randomList.Add(array[posicion]);
-                array.RemoveAt(posicion);
+                int position = random.Next(array.Count());
+                randomList.Add(array[position]);
+                array.RemoveAt(position);
             } while (array.Count() > 0);
 
             return randomList;
@@ -41,36 +42,38 @@ namespace namePicker
             Console.WriteLine("Introduzca la ruta del archivo txt, que contenga los temas:");
             string filePath2 = Console.ReadLine();
 
-            List<string> estudiantes = File.ReadAllLines(filePath).ToList();
-            List<string> grupos = File.ReadAllLines(filePath1).ToList();
-            List<string> temas = File.ReadAllLines(filePath2).ToList();
+            List<string> students = File.ReadAllLines(filePath).ToList();
+            List<string> groups = File.ReadAllLines(filePath1).ToList();
+            List<string> topics = File.ReadAllLines(filePath2).ToList();
 
-            estudiantes = RandomList(estudiantes);
-            grupos = RandomList(grupos);
-            temas = RandomList(temas);
+            students = RandomList(students);
+            groups = RandomList(groups);
+            topics = RandomList(topics);
 
-            float cantidadEstudiantes = estudiantes.Count() / grupos.Count();
-            float cantidadTemas = temas.Count() / grupos.Count();
+            float studentsAmount = students.Count() / groups.Count();
+            float topicsAmount = topics.Count() / groups.Count();
 
-            for(int i = 0; i < grupos.Count(); i++)
+            for(int i = 0; i < groups.Count(); i++)
             {
-                Console.WriteLine($"\n{grupos[i]}");
+                Console.WriteLine("------------------------------");
+                Console.WriteLine($"\n{groups[i]}");
+                Console.WriteLine("------------------------------");
 
-                Console.WriteLine("Integrantes: " + cantidadEstudiantes);
+                Console.WriteLine("Integrantes: " + studentsAmount);
                 int e = 0;
-                while (e < cantidadEstudiantes)
+                while (e < studentsAmount)
                 {
-                    Console.WriteLine(estudiantes[0]);
-                    estudiantes.RemoveAt(0);
+                    Console.WriteLine(students[0]);
+                    students.RemoveAt(0);
                     e++;
                 }
 
-               Console.WriteLine("Cantidad de Temas: " + cantidadTemas);
+               Console.WriteLine("Cantidad de Temas: " + topicsAmount);
                 int t = 0;
-                while(t < cantidadTemas)
+                while(t < topicsAmount)
                 {
-                    Console.WriteLine(temas[0]);
-                    temas.RemoveAt(0);
+                    Console.WriteLine(topics[0]);
+                    topics.RemoveAt(0);
                     t++;
                 }
             }
