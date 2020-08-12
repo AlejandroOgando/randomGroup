@@ -36,7 +36,7 @@ namespace namePicker
 
         static void Main(string[] args)
         {
-            Console.Write("Introducirla ruta del archivo txt, que contenga los estudiantes: ");
+            Console.WriteLine("Introducirla ruta del archivo txt, que contenga los estudiantes: ");
             string filepath = Console.ReadLine();
             Console.WriteLine("Introduzca la ruta del archivo txt, que contenga los grupos: ");
             string filepath1 = Console.ReadLine();
